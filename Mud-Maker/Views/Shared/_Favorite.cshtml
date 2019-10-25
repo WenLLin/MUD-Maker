@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mud Play</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color:black">
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item col-lg-5 text-center">
+                        <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Favorite">Favorite</a>
+                    </li>
+                    <li class="nav-item col-4 text-center">
+                        <a class="nav-link text-light" asp-area="" asp-controller="User" asp-action="Index">MUD</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Find a MUD" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" asp-controller="User" asp-action="Favorite">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header text-dark">
+                    <h4 class="my-0 font-weight-normal">MUD_1</h4>
+                </div>
+                <div class="card-body">
+                    <img class="img-thumbnail" src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/73546186_2708002052579381_3799772826790002688_n.jpg?_nc_cat=101&_nc_oc=AQlG-dfh4BRx064PIkNFvn-t5qHYTiyKyb6E91PM5T7artBSirNfVStaHrVTuIFyEbs&_nc_ht=scontent-iad3-1.xx&oh=01a4f561b5e31ffc54a0aa648b53a607&oe=5E5C3D55" />
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary" >Play</button>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="alert('NO! No no no no no!!!')">Delete</button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header text-dark">
+                    <h4 class="my-0 font-weight-normal">MUD_for_Vets</h4>
+                </div>
+                <div class="card-body">
+                    <img class="img-thumbnail" src="https://mcmurraystern.com/wp-content/uploads/2016/01/012_corrected_web1925.jpg" />
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Play</button>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Delete</button>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header text-dark">
+                    <h4 class="my-0 font-weight-normal">MSSA</h4>
+                </div>
+                <div class="card-body">
+                    <img class="img-thumbnail" src="https://media.licdn.com/dms/image/C4E22AQGTVI3mJ4Ai4Q/feedshare-shrink_2048_1536/0?e=1574899200&v=beta&t=8J05K0kW8mvVF_DJmb0JH-bVHwxd_9L7gU02Ci4s0uk" />
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Play</button>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+</body>
+</html>

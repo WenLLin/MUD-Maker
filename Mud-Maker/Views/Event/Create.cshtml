@@ -1,0 +1,80 @@
+﻿@model CreateEventViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Event.EventName" class="control-label"></label>
+                <input asp-for="Event.EventName" class="form-control" />
+                <span asp-validation-for="Event.EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.EventDescription" class="control-label"></label>
+                <input asp-for="Event.EventDescription" class="form-control" />
+                <span asp-validation-for="Event.EventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.EventText" class="control-label"></label>
+                <input asp-for="Event.EventText" class="form-control" />
+                <span asp-validation-for="Event.EventText" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Event.EventTriggered" /> @Html.DisplayNameFor(model => model.Event.EventTriggered)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Event.FightId" class="control-label"></label>
+                
+                <select asp-for="Event.FightId" class="form-control">
+                    @foreach (var item in Model.Fights)
+                    {
+                        <option value="@item.FightId">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.HealthId" class="control-label"></label>             
+                <select asp-for="Event.HealthId" class="form-control">
+                    @foreach (var item in Model.Healths)
+                    {
+                        <option value="@item.HealthId">@item.Amount</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.ItemId" class="control-label"></label>
+                <select asp-for="Event.ItemId" class="form-control">
+                    @foreach (var item in Model.items)
+                    {
+                        <option value="@item.ItemId">@item.Object</option>
+                    }
+                </select>
+            </div>
+            <input type="hidden" asp-for="MUD" />
+            <div class="form-group">
+                <a asp-controller="Event" asp-action="Index" asp-route-id="@Model.MUD" class="btn btn-info">Back to List</a>
+                <input type="submit" value="Done" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <button type="button" class="btn btn-outline-warning btn-block btn-lg">Forward</button><br />
+        <button type="button" class="btn btn-outline-warning btn-lg">< Left</button>
+        <button type="button" class="btn btn-outline-warning btn-lg float-right">Right ></button><br /><br />
+        <button type="button" class="btn btn-outline-warning btn-block btn-lg">Back</button>
+    </div>
+</div>
+
+

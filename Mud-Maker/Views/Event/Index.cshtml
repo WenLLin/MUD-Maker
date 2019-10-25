@@ -1,0 +1,96 @@
+﻿@model EventViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h1>MUD: @Model.MUD.MudName</h1>
+
+<p class="text-light">
+    <a asp-action="Create" asp-route-id="@Model.MUD.MudId">Create New</a>
+</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Text
+                </th>
+                <th>
+                    Event Triggered
+                </th>
+                <th>
+                    Left
+                </th>
+                <th>
+                    Right
+                </th>
+                <th>
+                    Fwd
+                </th>
+                <th>
+                    Back
+                </th>
+                <th>
+                    Fight
+                </th>
+                <th>
+                    Health
+                </th>
+                <th>
+                    Item
+                </th>
+                <th></th>
+            </tr>
+        </thead>       
+        <tbody>            
+                @foreach (var item in Model.Events)
+                {
+            <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventTriggered)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirRight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirRight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirFwd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirBack)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fight.FightId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Health.HealthId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.ItemId)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.EventId">Directions/Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.EventId">Delete</a>
+                    </td>
+            </tr>
+                }            
+        </tbody>            
+    </table>

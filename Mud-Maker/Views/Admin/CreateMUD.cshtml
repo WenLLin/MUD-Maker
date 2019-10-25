@@ -1,0 +1,31 @@
+﻿@model Mud_Maker.Data.Mud
+
+@{
+    ViewData["Title"] = "Create MUD";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h1>Create MUD</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateMUD">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MudName" class="control-label">Name</label>
+                <input asp-for="MudName" class="form-control" />
+                <span asp-validation-for="MudName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MudDescription" class="control-label">Description</label>
+                <input asp-for="MudDescription" class="form-control" />
+                <span asp-validation-for="MudDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
